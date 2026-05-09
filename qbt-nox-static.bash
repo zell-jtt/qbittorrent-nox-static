@@ -1659,11 +1659,11 @@ _set_build_directory() {
 #######################################################################################################################################################
 _set_module_urls() {
 	# Update check url for the _script_version function
-	script_url="https://raw.githubusercontent.com/userdocs/qbittorrent-nox-static/master/qbt-nox-static.bash"
+	script_url="https://raw.githubusercontent.com/zell-jtt/qbittorrent-nox-static/master/qbt-nox-static.bash"
 
 	# Only fetch dependency-version.json when workflow files are actually being used
 	if [[ ${qbt_workflow_files} == "yes" ]]; then
-		local qbt_workflow_json_url="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/dependency-version.json"
+		local qbt_workflow_json_url="https://github.com/jiatern/qbt-workflow-files/releases/latest/download/dependency-version.json"
 		local qbt_workflow_json_content
 		qbt_workflow_json_content="$(_curl "${qbt_workflow_json_url}")"
 
@@ -1713,7 +1713,7 @@ _set_module_urls() {
 	github_url[libtorrent]="https://github.com/arvidn/libtorrent.git"
 	github_url[qtbase]="https://github.com/qt/qtbase.git"
 	github_url[qttools]="https://github.com/qt/qttools.git"
-	github_url[qbittorrent]="https://github.com/qbittorrent/qBittorrent.git"
+	github_url[qbittorrent]="https://github.com/jiatern/qBittorrent.git"
 	##########################################################################################################################################################
 	# Configure the github_tag associative array for all the applications this script uses and we call them as ${github_tag[app_name]}
 	# When workflow files are active and no override is set, pin the tag from qbt_workflow_versions instead of querying git.
@@ -1807,29 +1807,29 @@ _set_module_urls() {
 		source_archive_url[qttools]="https://download.qt.io/archive/qt/${qt_version_short}/${app_version[qttools]}/submodules/qttools-everywhere-opensource-src-${app_version[qttools]}.tar.xz"
 	fi
 
-	source_archive_url[qbittorrent]="https://github.com/qbittorrent/qBittorrent/archive/refs/tags/${github_tag[qbittorrent]}.tar.gz"
+	source_archive_url[qbittorrent]="https://github.com/jiatern/qBittorrent/archive/refs/tags/${github_tag[qbittorrent]}.tar.gz"
 	##########################################################################################################################################################
 	# Configure the qbt_workflow_archive_url associative array for all the applications this script uses and we call them as ${qbt_workflow_archive_url[app_name]}
 	##########################################################################################################################################################
 	if [[ ${os_id} =~ ^(debian|ubuntu)$ ]]; then
-		qbt_workflow_archive_url[glibc]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/glibc.${app_version[glibc]}.tar.xz"
+		qbt_workflow_archive_url[glibc]="https://github.com/jiatern/qbt-workflow-files/releases/latest/download/glibc.${app_version[glibc]}.tar.xz"
 	fi
 
 	if [[ ${qbt_zlib_type} == "zlib" ]]; then
-		qbt_workflow_archive_url[zlib]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/zlib.tar.xz"
+		qbt_workflow_archive_url[zlib]="https://github.com/jiatern/qbt-workflow-files/releases/latest/download/zlib.tar.xz"
 	elif [[ ${qbt_zlib_type} == "zlib-ng" ]]; then
-		qbt_workflow_archive_url[zlib]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/zlib-ng.tar.xz"
+		qbt_workflow_archive_url[zlib]="https://github.com/jiatern/qbt-workflow-files/releases/latest/download/zlib-ng.tar.xz"
 	fi
 
-	qbt_workflow_archive_url[iconv]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/iconv.tar.xz"
-	qbt_workflow_archive_url[icu]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/icu.tar.xz"
-	qbt_workflow_archive_url[double_conversion]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/double_conversion.tar.xz"
-	qbt_workflow_archive_url[openssl]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/openssl.tar.xz"
-	qbt_workflow_archive_url[boost]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/boost.tar.xz"
-	qbt_workflow_archive_url[libtorrent]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/libtorrent.${app_version[libtorrent]}.tar.xz"
-	qbt_workflow_archive_url[qtbase]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/qt${qbt_qt_version:0:1}base.tar.xz"
-	qbt_workflow_archive_url[qttools]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/qt${qbt_qt_version:0:1}tools.tar.xz"
-	qbt_workflow_archive_url[qbittorrent]="https://github.com/userdocs/qbt-workflow-files/releases/latest/download/qbittorrent.tar.xz"
+	qbt_workflow_archive_url[iconv]="https://github.com/jiatern/qbt-workflow-files/releases/latest/download/iconv.tar.xz"
+	qbt_workflow_archive_url[icu]="https://github.com/jiatern/qbt-workflow-files/releases/latest/download/icu.tar.xz"
+	qbt_workflow_archive_url[double_conversion]="https://github.com/jiatern/qbt-workflow-files/releases/latest/download/double_conversion.tar.xz"
+	qbt_workflow_archive_url[openssl]="https://github.com/jiatern/qbt-workflow-files/releases/latest/download/openssl.tar.xz"
+	qbt_workflow_archive_url[boost]="https://github.com/jiatern/qbt-workflow-files/releases/latest/download/boost.tar.xz"
+	qbt_workflow_archive_url[libtorrent]="https://github.com/jiatern/qbt-workflow-files/releases/latest/download/libtorrent.${app_version[libtorrent]}.tar.xz"
+	qbt_workflow_archive_url[qtbase]="https://github.com/jiatern/qbt-workflow-files/releases/latest/download/qt${qbt_qt_version:0:1}base.tar.xz"
+	qbt_workflow_archive_url[qttools]="https://github.com/jiatern/qbt-workflow-files/releases/latest/download/qt${qbt_qt_version:0:1}tools.tar.xz"
+	qbt_workflow_archive_url[qbittorrent]="https://github.com/jiatern/qbt-workflow-files/releases/latest/download/qbittorrent.tar.xz"
 	##########################################################################################################################################################
 	# Configure the default source type we use for the download function
 	##########################################################################################################################################################
@@ -3090,7 +3090,7 @@ _release_info() {
 	printf '%b\n' "{\n  \"openssl\": \"${app_version[openssl]}\",\n  \"boost\": \"${app_version[boost]}\",\n  \"libtorrent_${qbt_libtorrent_version//\./_}\": \"${app_version[libtorrent]}\",\n  \"qt${qt_version_short_array[0]}\": \"${app_version[qtbase]}\",\n  \"qbittorrent\": \"${app_version[qbittorrent]}\",\n  \"revision\": \"${qbt_revision_version:-0}\"\n}" > "${release_info_dir}/qt${qt_version_short_array[0]}-dependency-version.json"
 
 	[[ ${qbt_workflow_files} == "no" ]] && source_text="source files - direct"
-	[[ ${qbt_workflow_files} == "yes" ]] && source_text="source files - workflows: [qbt-workflow-files](https://github.com/userdocs/qbt-workflow-files/releases/latest)"
+	[[ ${qbt_workflow_files} == "yes" ]] && source_text="source files - workflows: [qbt-workflow-files](https://github.com/jiatern/qbt-workflow-files/releases/latest)"
 
 	cat > "${release_info_dir}/qt${qt_version_short_array[0]}-${qbt_cross_name}-release.md" <<- RELEASE_INFO
 		## Build info
@@ -3476,7 +3476,7 @@ while (("${#}")); do
 			app_version[qbittorrent]="${github_tag[qbittorrent]#release-}"
 			source_default[qbittorrent]="folder"
 			qbt_workflow_override[qbittorrent]="yes"
-			source_archive_url[qbittorrent]="https://github.com/qbittorrent/qBittorrent/archive/refs/heads/${github_tag[qbittorrent]}.tar.gz"
+			source_archive_url[qbittorrent]="https://github.com/jiatern/qBittorrent/archive/refs/heads/${github_tag[qbittorrent]}.tar.gz"
 			_test_git_output "${github_tag[qbittorrent]}" "qbittorrent" "master"
 			shift
 			;;
@@ -3486,9 +3486,9 @@ while (("${#}")); do
 				github_tag[qbittorrent]="$(_git "${github_url[qbittorrent]}" -t "$2")"
 				app_version[qbittorrent]="${github_tag[qbittorrent]#release-}"
 				if [[ ${github_tag[qbittorrent]} =~ ^release- ]]; then
-					source_archive_url[qbittorrent]="https://github.com/qbittorrent/qBittorrent/archive/refs/tags/${github_tag[qbittorrent]}.tar.gz"
+					source_archive_url[qbittorrent]="https://github.com/jiatern/qBittorrent/archive/refs/tags/${github_tag[qbittorrent]}.tar.gz"
 				else
-					source_archive_url[qbittorrent]="https://github.com/qbittorrent/qBittorrent/archive/refs/heads/${github_tag[qbittorrent]}.tar.gz"
+					source_archive_url[qbittorrent]="https://github.com/jiatern/qBittorrent/archive/refs/heads/${github_tag[qbittorrent]}.tar.gz"
 				fi
 
 				# if qbt_default_qbittorrent_github_tag is the same as the define tag, don't override.
@@ -3885,7 +3885,7 @@ while (("${#}")); do
 			;;
 		-h-wf | --help-workflow)
 			printf '\n%b\n' " ${unicode_cyan_light_circle} ${text_bold}${text_underlined}Here is the help description for this flag:${color_end}"
-			printf '\n%b\n' " ${unicode_yellow_circle} Use archives from ${color_cyan_light}https://github.com/userdocs/qbt-workflow-files/releases/latest${color_end}"
+			printf '\n%b\n' " ${unicode_yellow_circle} Use archives from ${color_cyan_light}https://github.com/jiatern/qbt-workflow-files/releases/latest${color_end}"
 			printf '\n%b\n' " ${unicode_yellow_circle} ${color_yellow_light}Warning:${color_end} If you set a custom version for supported modules it will override and disable workflows as a source for that module"
 			printf '\n%b\n\n' " ${unicode_blue_light_circle} Usage example: ${color_blue_light}-wf${color_end}"
 			exit
